@@ -35,3 +35,7 @@ resource "aws_volume_attachment" "ebs-volume-1-attachment" {
   instance_id = "${aws_instance.vault.id}"
   delete_on_termination = false # whether to delete the extra block storage  when the instance gets terminated or not 
 }
+
+#userdata is only run at launch, it does not work on reboot /restart 
+#user_data can be any script from host os aka #!/bin/bash (linux) 
+#user_data = "${variable}" < can be much more descriptive requires .tf template pointing to script file 
